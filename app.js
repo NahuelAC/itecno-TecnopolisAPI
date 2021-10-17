@@ -9,11 +9,11 @@ var router_cck = express.Router();
 var port = 3000;
 //------------------------| Tecnopolis Api |-------------------------------------\\
 router_t.get("/all", function (req, res) {
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.t.getEntradas());
+    db_1.doAndSendQuery.t(res, querys_1.querys.t.getEntradas());
 });
 router_t.get("/bydni/:dni", function (req, res) {
     var dni = req.params.dni;
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.t.getEntradasByDni(dni));
+    db_1.doAndSendQuery.t(res, querys_1.querys.t.getEntradasByDni(dni));
 });
 router_t.post("/localdatabasebackup", function (req, res) {
     var data = {
@@ -23,15 +23,15 @@ router_t.post("/localdatabasebackup", function (req, res) {
         personas: req.body.personas,
         salas: req.body.salas
     };
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.t.postCliente(data));
+    db_1.doAndSendQuery.t(res, querys_1.querys.t.postCliente(data));
 });
 //----------------------| Centro Cultural Kirchner Api |------------------------\\
 router_cck.get("/all", function (req, res) {
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.cck.getEntradas());
+    db_1.doAndSendQuery.cck(res, querys_1.querys.cck.getEntradas());
 });
 router_cck.get("/bydni/:dni", function (req, res) {
     var dni = req.params.dni;
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.cck.getEntradasByDni(dni));
+    db_1.doAndSendQuery.cck(res, querys_1.querys.cck.getEntradasByDni(dni));
 });
 router_cck.post("/localdatabasebackup", function (req, res) {
     var data = {
@@ -41,7 +41,7 @@ router_cck.post("/localdatabasebackup", function (req, res) {
         personas: req.body.personas,
         salas: req.body.salas
     };
-    (0, db_1.doAndSendQuery)(res, querys_1.querys.cck.postCliente(data));
+    db_1.doAndSendQuery.cck(res, querys_1.querys.cck.postCliente(data));
 });
 //-------------------------------------------------------------------------------\\
 app.use('/api/tecnopolis/tickets', router_t);

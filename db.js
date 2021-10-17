@@ -9,9 +9,16 @@ var connectionString = "Server=" + configs_1.config.server + ";" +
     ("Database=" + configs_1.config.database + ";") +
     "Trusted_Connection=Yes;" +
     "Driver={SQL Server Native Client 11.0}";
-var getQuery = function (res, query) {
-    sql.query(connectionString, query, function (e, data) {
-        res.json(data);
-    });
+var getQuery = {
+    t: function (res, query) {
+        sql.query(connectionString, query, function (e, data) {
+            res.json(data);
+        });
+    },
+    cck: function (res, query) {
+        sql.query(connectionString, query, function (e, data) {
+            res.json(data);
+        });
+    }
 };
 exports.doAndSendQuery = getQuery;

@@ -11,12 +11,12 @@ const port = 3000;
 //------------------------| Tecnopolis Api |-------------------------------------\\
 
 router_t.get("/all", (req, res) => {
-    doAndSendQuery(res, querys.t.getEntradas());
+    doAndSendQuery.t(res, querys.t.getEntradas());
 });
 
 router_t.get("/bydni/:dni", (req, res) => {
     const dni = req.params.dni;
-    doAndSendQuery(res, querys.t.getEntradasByDni(dni));
+    doAndSendQuery.t(res, querys.t.getEntradasByDni(dni));
 });
 
 router_t.post("/localdatabasebackup", (req, res) => {
@@ -27,18 +27,18 @@ router_t.post("/localdatabasebackup", (req, res) => {
         personas: req.body.personas,
         salas: req.body.salas
     }
-    doAndSendQuery(res, querys.t.postCliente(data));
+    doAndSendQuery.t(res, querys.t.postCliente(data));
 });
 
 //----------------------| Centro Cultural Kirchner Api |------------------------\\
 
 router_cck.get("/all", (req, res) => {
-    doAndSendQuery(res, querys.cck.getEntradas());
+    doAndSendQuery.cck(res, querys.cck.getEntradas());
 });
 
 router_cck.get("/bydni/:dni", (req, res) => {
     const dni = req.params.dni;
-    doAndSendQuery(res, querys.cck.getEntradasByDni(dni));
+    doAndSendQuery.cck(res, querys.cck.getEntradasByDni(dni));
 });
 
 router_cck.post("/localdatabasebackup", (req, res) => {
@@ -49,7 +49,7 @@ router_cck.post("/localdatabasebackup", (req, res) => {
         personas: req.body.personas,
         salas: req.body.salas
     }
-    doAndSendQuery(res, querys.cck.postCliente(data));
+    doAndSendQuery.cck(res, querys.cck.postCliente(data));
 });
 
 //-------------------------------------------------------------------------------\\
