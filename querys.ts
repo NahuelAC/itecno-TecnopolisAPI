@@ -1,13 +1,23 @@
-import {doQuery} from "./db";
 
-const Query = {
 
-    getEntradas: (res) => doQuery(res, `SELECT * FROM users`),
+const Querys = {
 
-    getEntradasByDni: (res, dni) => doQuery(res, `SELECT * FROM <table> WHERE dni='${dni}'`),
+    t: {
+        getEntradas: () => `SELECT * FROM Entradas`,
 
-    postCliente: (res, data) => doQuery(res, `INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}')`)
+        getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE dni='${dni}'`,
+
+        postCliente: (data) => `INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}')`
+    },
+
+    cck: {
+        getEntradas: () => `SELECT * FROM Entradas`,
+
+        getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE dni='${dni}'`,
+
+        postCliente: (data) => `INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}')`
+    }
 
 }
 
-export const query = Query;
+export const querys = Querys

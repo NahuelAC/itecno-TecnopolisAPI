@@ -1,15 +1,16 @@
 import { SqlClient } from "msnodesqlv8";
+import { config } from "./configs";
 
 const sql: SqlClient = require("msnodesqlv8");
 
 
 const connectionString =
-    "Server=DESKTOP-4381IJK\\SQLEXPRESS;" +
-    "Database=tests;" +
-    "User Id=admin;" +
-    "Password=admin;" +
-    "Trusted_Connection=Yes;" +
-    "Driver={SQL Server Native Client 11.0}";
+    `Server=${config.server};` +
+    `User Id=${config.user};` +
+    `Password=${config.password};` +
+    `Database=${config.database};` +
+    `Trusted_Connection=Yes;` +
+    `Driver={SQL Server Native Client 11.0}`;
 
 
 const getQuery = (res, query: string) => {
@@ -18,4 +19,4 @@ const getQuery = (res, query: string) => {
     });
 }
 
-export const doQuery = getQuery;
+export const doAndSendQuery = getQuery;
