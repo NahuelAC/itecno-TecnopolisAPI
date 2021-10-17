@@ -1,10 +1,11 @@
+"use strict";
 //-------------| Configurations |----------------\\
-
-const local_config = {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.config = void 0;
+var local_config = {
     server: "DESKTOP-4381IJK\\SQLEXPRESS",
     user: "nartex",
     password: "lunasa",
     database: "tests"
-}
-
-export const config = local_config;
+};
+exports.config = local_config;
