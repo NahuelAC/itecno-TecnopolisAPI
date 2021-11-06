@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
+var bodyParser = require("body-parser");
 var querys_1 = require("./querys");
 var db_1 = require("./db");
 var app = express();
@@ -31,6 +32,7 @@ router.post("/localdatabasebackup", function (req, res) {
         salas: req.body.salas
     };
     // postAndSendQuery(res, querys.postCliente(data));
+    console.log(req.body);
     res.json(data);
 });
 router.put("/show/:idEntradas/:deviceid", function (req, res) {
@@ -44,6 +46,8 @@ router.put("/preshow/:idEntradas/:deviceid", function (req, res) {
     (0, db_1.putAndSendQuery)(res, querys_1.querys.putEntradaPreshow(idEntradas, deviceid));
 });
 //-------------------------------------------------------------------------------\\
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/api/tecnopolis/tickets', router);
 app.listen(port, function () {
     console.log("Api listening at http://localhost:" + port);

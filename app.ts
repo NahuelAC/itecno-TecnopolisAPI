@@ -1,4 +1,5 @@
 import * as express from "express";
+import * as bodyParser from "body-parser";
 import {querys} from "./querys";
 import {doAndSendQuery, putAndSendQuery, postAndSendQuery} from "./db";
 
@@ -37,6 +38,8 @@ router.post("/localdatabasebackup", (req, res) => {
         salas: req.body.salas
     }
     // postAndSendQuery(res, querys.postCliente(data));
+
+    console.log(req.body);
     res.json(data);
 });
 
@@ -56,6 +59,9 @@ router.put("/preshow/:idEntradas/:deviceid", (req, res) => {
 
 //-------------------------------------------------------------------------------\\
 
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/api/tecnopolis/tickets', router);
 
