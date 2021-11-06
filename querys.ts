@@ -2,25 +2,19 @@
 
 const Querys = {
 
-    t: {
-        getEntradas: () => `SELECT * FROM Entradas`,
+    getEntradas: () => `SELECT * FROM Entradas`,
 
-        getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE dni='${dni}'`,
+    getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE dni='${dni}'`,
 
-        getEntradasByDay: (day) => `SELECT * FROM Entradas WHERE fecha='${day}'`,
+    getEntradasByDate: (date) => `SELECT * FROM Entradas WHERE fecha='${date}'`,
 
-        postCliente: (data) => `INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}')`
-    },
+    getEntradasByEventos: (idEventos) => `SELECT * FROM Entradas WHERE idEventos='${idEventos}'`,
 
-    cck: {
-        getEntradas: () => `SELECT * FROM Entradas`,
+    putEntradaShow: (idEntradas, sid) => `UPDATE Entradas  SET Show=GETDATE(), Sid='${sid}' WHERE idEntradas=${idEntradas}`,
 
-        getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE dni='${dni}'`,
+    putEntradaPreshow: (idEntradas, presid) => `UPDATE Entradas  SET Preshow=GETDATE(), PreSid='${presid}' WHERE idEntradas=${idEntradas}`,
 
-        getEntradasByDay: (day) => `SELECT * FROM Entradas WHERE fecha='${day}'`,
-
-        postCliente: (data) => `INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}')`
-    }
+    postCliente: (data) => ``
 
 }
 

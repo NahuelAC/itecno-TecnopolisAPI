@@ -2,17 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.querys = void 0;
 var Querys = {
-    t: {
-        getEntradas: function () { return "SELECT * FROM Entradas"; },
-        getEntradasByDni: function (dni) { return "SELECT * FROM Entradas WHERE dni='" + dni + "'"; },
-        getEntradasByDay: function (day) { return "SELECT * FROM Entradas WHERE fecha='" + day + "'"; },
-        postCliente: function (data) { return "INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('" + data.espectaculo_id + "', '" + data.dni + "', '" + data.fechayhora + "', '" + data.personas + "', '" + data.sala + "')"; }
-    },
-    cck: {
-        getEntradas: function () { return "SELECT * FROM Entradas"; },
-        getEntradasByDni: function (dni) { return "SELECT * FROM Entradas WHERE dni='" + dni + "'"; },
-        getEntradasByDay: function (day) { return "SELECT * FROM Entradas WHERE fecha='" + day + "'"; },
-        postCliente: function (data) { return "INSERT INTO <table> (espectaculo_id, dni, fechayhora, personas, sala) ('" + data.espectaculo_id + "', '" + data.dni + "', '" + data.fechayhora + "', '" + data.personas + "', '" + data.sala + "')"; }
-    }
+    getEntradas: function () { return "SELECT * FROM Entradas"; },
+    getEntradasByDni: function (dni) { return "SELECT * FROM Entradas WHERE dni='" + dni + "'"; },
+    getEntradasByDate: function (date) { return "SELECT * FROM Entradas WHERE fecha='" + date + "'"; },
+    getEntradasByEventos: function (idEventos) { return "SELECT * FROM Entradas WHERE idEventos='" + idEventos + "'"; },
+    putEntradaShow: function (idEntradas, sid) { return "UPDATE Entradas  SET Show=GETDATE(), Sid='" + sid + "' WHERE idEntradas=" + idEntradas; },
+    putEntradaPreshow: function (idEntradas, presid) { return "UPDATE Entradas  SET Preshow=GETDATE(), PreSid='" + presid + "' WHERE idEntradas=" + idEntradas; },
+    postCliente: function (data) { return ""; }
 };
 exports.querys = Querys;

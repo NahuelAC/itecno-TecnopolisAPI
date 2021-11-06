@@ -1,25 +1,34 @@
 import * as express from "express";
 import {querys} from "./querys";
-import {doAndSendQuery} from "./db";
+import {doAndSendQuery, putAndSendQuery, postAndSendQuery} from "./db";
 
 const app = express();
-const router_t = express.Router();
-const router_cck = express.Router();
+const router = express.Router();
 const port = 3000;
 
 
 //------------------------| Tecnopolis Api |-------------------------------------\\
 
-router_t.get("/all", (req, res) => {
-    doAndSendQuery.t(res, querys.t.getEntradas());
+router.get("/all", (req, res) => {
+    doAndSendQuery(res, querys.getEntradas());
 });
 
-router_t.get("/bydni/:dni", (req, res) => {
+router.get("/bydni/:dni", (req, res) => {
     const dni = req.params.dni;
-    doAndSendQuery.t(res, querys.t.getEntradasByDni(dni));
+    doAndSendQuery(res, querys.getEntradasByDni(dni));
 });
 
-router_t.post("/localdatabasebackup", (req, res) => {
+router.get('/bydate/:date', (req, res) => {
+    const date = req.params.date;
+    doAndSendQuery(res, querys.getEntradasByDate(date));
+});
+
+router.get('/byentrada/:idEventos', (req, res) => {
+    const idEventos = req.params.idEventos;
+    doAndSendQuery(res, querys.getEntradasByEventos(idEventos));
+});
+
+router.post("/localdatabasebackup", (req, res) => {
     const data = {
         espectaculo_id: req.body.espectaculo_id,
         dni: req.body.dni,
@@ -27,36 +36,28 @@ router_t.post("/localdatabasebackup", (req, res) => {
         personas: req.body.personas,
         salas: req.body.salas
     }
-    doAndSendQuery.t(res, querys.t.postCliente(data));
+    // postAndSendQuery(res, querys.postCliente(data));
+    res.json(data);
 });
 
-//----------------------| Centro Cultural Kirchner Api |------------------------\\
+router.put("/show/:idEntradas/:deviceid", (req, res) => {
+    const idEntradas = req.params.idEntradas;
+    const deviceid = req.params.deviceid;
 
-router_cck.get("/all", (req, res) => {
-    doAndSendQuery.cck(res, querys.cck.getEntradas());
+    putAndSendQuery(res, querys.putEntradaShow(idEntradas, deviceid));
 });
 
-router_cck.get("/bydni/:dni", (req, res) => {
-    const dni = req.params.dni;
-    doAndSendQuery.cck(res, querys.cck.getEntradasByDni(dni));
-});
+router.put("/preshow/:idEntradas/:deviceid", (req, res) => {
+    const idEntradas = req.params.idEntradas;
+    const deviceid = req.params.deviceid;
 
-router_cck.post("/localdatabasebackup", (req, res) => {
-    const data = {
-        espectaculo_id: req.body.espectaculo_id,
-        dni: req.body.dni,
-        fechayhora: req.body.fechayhora,
-        personas: req.body.personas,
-        salas: req.body.salas
-    }
-    doAndSendQuery.cck(res, querys.cck.postCliente(data));
+    putAndSendQuery(res, querys.putEntradaPreshow(idEntradas, deviceid));
 });
 
 //-------------------------------------------------------------------------------\\
 
 
-app.use('/api/tecnopolis/tickets', router_t);
-app.use('/api/cck/tickets', router_cck);
+app.use('/api/tecnopolis/tickets', router);
 
 
 app.listen(port, () => {
