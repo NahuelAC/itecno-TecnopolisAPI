@@ -25,7 +25,7 @@ var postQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
         console.log(query);
         if (e == null && data == null) {
-            res.json(202);
+            res.status(202);
         }
         else if (e == null && data != null) {
             res.json(data);

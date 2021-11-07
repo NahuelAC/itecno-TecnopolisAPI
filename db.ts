@@ -30,7 +30,7 @@ const postQuery = (res, query: string) => {
         console.log(query);
 
         if (e == null && data == null) {
-            res.json(202);
+            res.status(202);
         }
         else if (e == null && data != null) {
             res.json(data);
