@@ -19,7 +19,7 @@ router.get('/bydate/:date', function (req, res) {
     var date = req.params.date;
     (0, db_1.doAndSendQuery)(res, querys_1.querys.getEntradasByDate(date));
 });
-router.get('/byentrada/:idEventos', function (req, res) {
+router.get('/byeventos/:idEventos', function (req, res) {
     var idEventos = req.params.idEventos;
     (0, db_1.doAndSendQuery)(res, querys_1.querys.getEntradasByEventos(idEventos));
 });

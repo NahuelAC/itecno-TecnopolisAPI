@@ -24,7 +24,7 @@ router.get('/bydate/:date', (req, res) => {
     doAndSendQuery(res, querys.getEntradasByDate(date));
 });
 
-router.get('/byentrada/:idEventos', (req, res) => {
+router.get('/byeventos/:idEventos', (req, res) => {
     const idEventos = req.params.idEventos;
     doAndSendQuery(res, querys.getEntradasByEventos(idEventos));
 });
