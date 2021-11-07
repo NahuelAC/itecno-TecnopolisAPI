@@ -31,9 +31,7 @@ router.post("/localdatabasebackup", function (req, res) {
         personas: req.body.personas,
         salas: req.body.salas
     };
-    // postAndSendQuery(res, querys.postCliente(data));
-    console.log(req.body);
-    res.json(data);
+    (0, db_1.postAndSendQuery)(res, querys_1.querys.postCliente(data));
 });
 router.put("/show/:idEntradas/:deviceid", function (req, res) {
     var idEntradas = req.params.idEntradas;
@@ -46,7 +44,7 @@ router.put("/preshow/:idEntradas/:deviceid", function (req, res) {
     (0, db_1.putAndSendQuery)(res, querys_1.querys.putEntradaPreshow(idEntradas, deviceid));
 });
 //-------------------------------------------------------------------------------\\
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/tecnopolis/tickets', router);
 app.listen(port, function () {
