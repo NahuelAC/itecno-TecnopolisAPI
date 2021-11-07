@@ -29,13 +29,9 @@ const postQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
         console.log(query);
 
-        if (e == null) {
-            res.status(202);
-        }
-        else {
-            res.status(404);
-            console.log(e);
-        }
+        res.status(202);
+
+        console.log(e);
 
     })};
 
