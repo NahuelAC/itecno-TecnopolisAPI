@@ -29,7 +29,7 @@ const postQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
         console.log(query);
 
-        res.status(202);
+        res.json(data);
 
         console.log(e);
 

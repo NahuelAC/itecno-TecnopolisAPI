@@ -24,7 +24,7 @@ var putQuery = function (res, query) {
 var postQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
         console.log(query);
-        res.status(202);
+        res.json(data);
         console.log(e);
     });
 };
