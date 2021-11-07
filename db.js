@@ -31,7 +31,7 @@ var postQuery = function (res, query) {
             res.json(data);
         }
         else {
-            res.json(e);
+            res.send(e);
         }
         console.log(e);
     });
