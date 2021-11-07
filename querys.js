@@ -8,6 +8,6 @@ var Querys = {
     getEntradasByEventos: function (idEventos) { return "SELECT * FROM Entradas WHERE idEventos='" + idEventos + "'"; },
     putEntradaShow: function (idEntradas, sid) { return "UPDATE Entradas  SET Show=GETDATE(), Sid='" + sid + "' WHERE idEntradas=" + idEntradas; },
     putEntradaPreshow: function (idEntradas, presid) { return "UPDATE Entradas  SET Preshow=GETDATE(), PreSid='" + presid + "' WHERE idEntradas=" + idEntradas; },
-    postCliente: function (data) { return "INSERT INTO DevicesBackup (espectaculo_id, dni, fechayhora, personas, salas); VALUES ('" + data.espectaculo_id + "', '" + data.dni + "', '" + data.fechayhora + "', '" + data.personas + "', '" + data.salas + "');"; }
+    postCliente: function (data) { return "INSERT INTO DevicesBackup (espectaculo_id, dni, fechayhora, personas, salas); VALUES ('" + data.espectaculo_id + "', '" + data.dni + "', '" + data.fechayhora + "', '" + data.personas + "', '" + data.salas + "')"; }
 };
 exports.querys = Querys;
