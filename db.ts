@@ -28,7 +28,16 @@ const putQuery = (res, query: string) => {
 const postQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
         console.log(query);
-        res.json(data);
+
+        if (e == null && data == null)
+            res.json(202);
+        else if (e == null && data != null)
+            res.json(data);
+        else
+            res.json(e);
+
+        console.log(e);
+
     })};
 
 export const doAndSendQuery = getQuery;
