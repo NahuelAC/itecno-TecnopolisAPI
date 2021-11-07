@@ -24,16 +24,13 @@ var putQuery = function (res, query) {
 var postQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
         console.log(query);
-        if (e == null && data == null) {
+        if (e == null) {
             res.status(202);
         }
-        else if (e == null && data != null) {
-            res.json(data);
-        }
         else {
-            res.send(e);
+            res.status(404);
+            console.log(e);
         }
-        console.log(e);
     });
 };
 exports.doAndSendQuery = getQuery;
