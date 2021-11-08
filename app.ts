@@ -11,23 +11,30 @@ const port = 3000;
 //------------------------| Tecnopolis Api |-------------------------------------\\
 
 router.get("/all", (req, res) => {
+
     doAndSendQuery(res, querys.getEntradas());
 });
 
+
 router.get("/bydni/:dni", (req, res) => {
     const dni = req.params.dni;
+
     doAndSendQuery(res, querys.getEntradasByDni(dni));
 });
 
 router.get('/bydate/:date', (req, res) => {
     const date = req.params.date;
+
     doAndSendQuery(res, querys.getEntradasByDate(date));
 });
 
+
 router.get('/byeventos/:idEventos', (req, res) => {
     const idEventos = req.params.idEventos;
+
     doAndSendQuery(res, querys.getEntradasByEventos(idEventos));
 });
+
 
 router.post("/localdatabasebackup", (req, res) => {
     const data = {
@@ -40,12 +47,14 @@ router.post("/localdatabasebackup", (req, res) => {
     postAndSendQuery(res, querys.postCliente(data));
 });
 
+
 router.put("/show/:idEntradas/:deviceid", (req, res) => {
     const idEntradas = req.params.idEntradas;
     const deviceid = req.params.deviceid;
 
     putAndSendQuery(res, querys.putEntradaShow(idEntradas, deviceid));
 });
+
 
 router.put("/preshow/:idEntradas/:deviceid", (req, res) => {
     const idEntradas = req.params.idEntradas;
