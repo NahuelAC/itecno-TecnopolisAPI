@@ -29,7 +29,7 @@ router.post("/localdatabasebackup", function (req, res) {
         dni: req.body.dni,
         fechayhora: req.body.fechayhora,
         personas: req.body.personas,
-        salas: req.body.salas
+        sala: req.body.sala
     };
     (0, db_1.postAndSendQuery)(res, querys_1.querys.postCliente(data));
 });

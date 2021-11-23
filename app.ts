@@ -42,7 +42,7 @@ router.post("/localdatabasebackup", (req, res) => {
         dni: req.body.dni,
         fechayhora: req.body.fechayhora,
         personas: req.body.personas,
-        salas: req.body.salas
+        sala: req.body.sala
     }
     postAndSendQuery(res, querys.postCliente(data));
 });
