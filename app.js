@@ -23,7 +23,7 @@ router.get('/byeventos/:idEventos', function (req, res) {
     var idEventos = req.params.idEventos;
     (0, db_1.doAndSendQuery)(res, querys_1.querys.getEntradasByEventos(idEventos));
 });
-router.post("/localdatabasebackup/:espectaculo_id/:dni/:fechayhora/:personas/:sala/:device", function (req, res) {
+router.post("/localdatabasebackup/:espectaculo_id/:dni/:fechayhora/:personas/:sala", function (req, res) {
     var data = {
         // espectaculo_id: req.body.espectaculo_id,
         // dni: req.body.dni,
@@ -34,8 +34,7 @@ router.post("/localdatabasebackup/:espectaculo_id/:dni/:fechayhora/:personas/:sa
         dni: req.params.dni,
         fechayhora: req.params.fechayhora,
         personas: req.params.personas,
-        sala: req.params.sala,
-        device: req.params.device
+        sala: req.params.sala
     };
     (0, db_1.postAndSendQuery)(res, querys_1.querys.postCliente(data));
 });
