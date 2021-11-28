@@ -36,13 +36,18 @@ router.get('/byeventos/:idEventos', (req, res) => {
 });
 
 
-router.post("/localdatabasebackup", (req, res) => {
+router.post("/localdatabasebackup/:espectaculo_id/:dni/:fechayhora/:personas/:sala", (req, res) => {
     const data = {
-        espectaculo_id: req.body.espectaculo_id,
-        dni: req.body.dni,
-        fechayhora: req.body.fechayhora,
-        personas: req.body.personas,
-        sala: req.body.sala
+        // espectaculo_id: req.body.espectaculo_id,
+        // dni: req.body.dni,
+        // fechayhora: req.body.fechayhora,
+        // personas: req.body.personas,
+        // sala: req.body.sala
+        espectaculo_id: req.params.espectaculo_id,
+        dni: req.params.dni,
+        fechayhora: req.params.fechayhora,
+        personas: req.params.personas,
+        sala: req.params.sala
     }
     postAndSendQuery(res, querys.postCliente(data));
 });
