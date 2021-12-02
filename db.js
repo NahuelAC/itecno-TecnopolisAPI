@@ -11,6 +11,7 @@ var connectionString = "Server=" + configs_1.config.server + ";" +
     "Driver={SQL Server Native Client 11.0}";
 var getQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
+        console.log(query);
         console.log(data);
         res.json(data);
     });

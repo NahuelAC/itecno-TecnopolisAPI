@@ -15,6 +15,7 @@ const connectionString =
 
 const getQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
+        console.log(query);
         console.log(data);
         res.json(data);
     })};
