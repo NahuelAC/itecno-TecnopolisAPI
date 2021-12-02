@@ -23,12 +23,14 @@ const getQuery = (res, query: string) => {
 const putQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
         console.log(query);
+        console.log(data);
         res.json(data);
     })};
 
 const postQuery = (res, query: string) => {
     sql.query(connectionString, query, (e, data) => {
         console.log(query);
+        console.log(data);
 
         res.json(data);
 

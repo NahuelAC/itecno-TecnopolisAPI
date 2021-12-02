@@ -19,12 +19,14 @@ var getQuery = function (res, query) {
 var putQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
         console.log(query);
+        console.log(data);
         res.json(data);
     });
 };
 var postQuery = function (res, query) {
     sql.query(connectionString, query, function (e, data) {
         console.log(query);
+        console.log(data);
         res.json(data);
         console.log(e);
     });
