@@ -4,6 +4,8 @@ exports.querys = void 0;
 var Querys = {
     getEntradas: function () { return "SELECT * FROM Entradas"; },
     getEntradasByDni: function (dni) { return "SELECT * FROM Entradas WHERE DNI='" + dni + "'"; },
+    getEventos: function () { return "SELECT * FROM Eventos"; },
+    getEventoById: function (dni) { return "SELECT * FROM Eventos WHERE idEventos='" + dni + "'"; },
     getEntradasById: function (idEntradas) { return "SELECT * FROM Entradas WHERE idEntradas='" + idEntradas + "'"; },
     getEntradasByDate: function (date) { return "SELECT * FROM Entradas WHERE FechaV='" + date + "'"; },
     getEntradasByEventos: function (idEventos) { return "SELECT * FROM Entradas WHERE idEventos='" + idEventos + "'"; },

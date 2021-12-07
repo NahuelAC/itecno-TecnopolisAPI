@@ -6,6 +6,10 @@ const Querys = {
 
     getEntradasByDni: (dni) => `SELECT * FROM Entradas WHERE DNI='${dni}'`,
 
+    getEventos: () => `SELECT * FROM Eventos`,
+
+    getEventoById: (dni) => `SELECT * FROM Eventos WHERE idEventos='${dni}'`,
+
     getEntradasById: (idEntradas) => `SELECT * FROM Entradas WHERE idEntradas='${idEntradas}'`,
 
     getEntradasByDate: (date) => `SELECT * FROM Entradas WHERE FechaV='${date}'`,

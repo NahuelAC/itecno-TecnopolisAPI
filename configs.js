@@ -7,6 +7,6 @@ var server_config = {
     user: "nartex",
     password: "lunasa",
     database_dev: "tests",
-    database_prod: "MNBA"
+    database_prod: "Tecnop"
 };
 exports.config = server_config;
