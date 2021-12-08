@@ -8,7 +8,7 @@ const connectionString =
     `Server=${config.server};` +
     `User Id=${config.user};` +
     `Password=${config.password};` +
-    `Database=${config.database_dev};` +
+    `Database=${config.database_prod};` +
     `Trusted_Connection=Yes;` +
     `Driver={SQL Server Native Client 11.0}`;
 
