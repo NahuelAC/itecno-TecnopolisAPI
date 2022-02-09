@@ -24,10 +24,11 @@ router1.get('/bydate/:date', (req, res) => {
 });
 
 
-router1.get("/bydni/:dni", (req, res) => {
+router1.get("/bydni/:dni/:idEvento", (req, res) => {
     const dni = req.params.dni;
+    const idEvento = req.params.idEvento;
 
-    doAndSendQuery(res, querys.getEntradasByDni(dni));
+    doAndSendQuery(res, querys.getEntradasByDni(dni, idEvento));
 });
 
 
