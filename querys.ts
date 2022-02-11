@@ -4,7 +4,7 @@ const Querys = {
 
     getEntradas: () => `SELECT * FROM Entradas`,
 
-    getEntradasByDni: (dni, idEvento) => `GetEntradasByDni '${dni}', '${idEvento}'`,
+    getEntradasByDni: (dni, idEvento) => `GetEntradas '${dni}', '${idEvento}'`,
 
     getEventos: () => `SELECT * FROM Eventos`,
 
@@ -14,9 +14,9 @@ const Querys = {
 
     getEntradasByDate: (date) => `SELECT * FROM Entradas WHERE FechaV='${date}'`,
 
-    getEntradasByEventos: (idEventos) => `SELECT * FROM Entradas WHERE idEventos='${idEventos}'`,
+    getEntradasByEventos: (idEventos) => `GetEntradas @IdEvento=${idEventos}'`,
 
-    putEntradaShow: (idEntradas, show, sid) => `UPDATE Entradas  SET Show='${show}', Sid='${sid}' WHERE idEntradas=${idEntradas}`,
+    putEntradaShow: (idEntradas, show, sid) => `UPDATE Entradas SET Show='${show}', Sid='${sid}' WHERE idEntradas=${idEntradas}`,
 
     postCliente: (data) => `INSERT INTO DevicesBackup (espectaculo_id, dni, fechayhora, personas, sala, device) VALUES ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}', '${data.device}')`
 
