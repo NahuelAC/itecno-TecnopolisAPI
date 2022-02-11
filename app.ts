@@ -32,6 +32,12 @@ router1.get("/bydni/:dni/:idEvento", (req, res) => {
 });
 
 
+router1.get("/bydni/:dni", async (req, res) => {
+    const dni = req.params.dni;
+    doAndSendQuery(res, querys.getEntradasByDni(dni, null));
+});
+
+
 router1.get('/byeventos/:idEventos', (req, res) => {
     const idEventos = req.params.idEventos;
 
