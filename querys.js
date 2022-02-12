@@ -2,7 +2,7 @@
 exports.__esModule = true;
 exports.querys = void 0;
 var Querys = {
-    getEntradas: function () { return "SELECT * FROM Entradas"; },
+    getEntradas: function () { return "SELECT TOP 10 * FROM Entradas"; },
     getEntradasByDni: function (dni, idEvento) { return "GetEntradas '".concat(dni, "', ").concat(idEvento); },
     getEventos: function () { return "SELECT * FROM Eventos"; },
     getEventoById: function (dni) { return "SELECT * FROM Eventos WHERE idEventos=".concat(dni); },

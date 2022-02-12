@@ -2,7 +2,7 @@
 
 const Querys = {
 
-    getEntradas: () => `SELECT * FROM Entradas`,
+    getEntradas: () => `SELECT TOP 10 * FROM Entradas`,
 
     getEntradasByDni: (dni, idEvento) => `GetEntradas '${dni}', ${idEvento}`,
 
