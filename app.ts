@@ -88,6 +88,12 @@ app.use('/api/tecnopolis/tickets', router1);
 app.use('/api/tecnopolis/eventos', router2);
 
 
+app.get("/apk", async (req, res) => {
+    const file = "C:\\Users\\Administrator\\Documents\\tecnop_apk\\arqytech.qr.v2.apk";
+    res.download(file);
+});
+
+
 app.listen(port, () => {
     console.log(`Api listening at http://localhost:${port}`);
 });
