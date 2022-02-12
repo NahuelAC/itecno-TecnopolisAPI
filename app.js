@@ -98,6 +98,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/tecnopolis/tickets', router1);
 app.use('/api/tecnopolis/eventos', router2);
+app.get("/apk", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var file;
+    return __generator(this, function (_a) {
+        file = "C:\\Users\\Administrator\\Documents\\tecnop_apk\\arqytech.qr.v2.apk";
+        res.download(file);
+        return [2 /*return*/];
+    });
+}); });
 app.listen(port, function () {
     console.log("Api listening at http://localhost:".concat(port));
 });
