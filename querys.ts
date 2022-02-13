@@ -16,7 +16,7 @@ const Querys = {
 
     getEntradasByEventos: (idEventos) => `GetEntradas @IdEvento=${idEventos}`,
 
-    putEntradaShow: (idEntradas, show, sid) => `UPDATE Entradas SET Show='${show}', Sid='${sid}' WHERE idEntradas=${idEntradas} AND Show ISNULL`,
+    putEntradaShow: (idEntradas, show, sid) => `UPDATE Entradas SET Show='${show}', Sid='${sid}' WHERE idEntradas=${idEntradas} AND Show IS NULL`,
 
     postCliente: (data) => `INSERT INTO DevicesBackup (espectaculo_id, dni, fechayhora, personas, sala, device) VALUES ('${data.espectaculo_id}', '${data.dni}', '${data.fechayhora}', '${data.personas}', '${data.sala}', '${data.device}')`
 
