@@ -89,7 +89,7 @@ app.use('/api/tecnopolis/eventos', router2);
 
 
 app.get("/apk", async (req, res) => {
-    const file = "C:\\Users\\Administrator\\Documents\\tecnop_apk\\arqytech.qr.v2.apk";
+    const file = "C:\\Users\\Administrator\\Documents\\tecnop_apk\\arqytech.tecnopolis.qr-3.1.apk";
     res.download(file);
 });
 

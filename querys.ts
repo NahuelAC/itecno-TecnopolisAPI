@@ -12,7 +12,7 @@ const Querys = {
 
     getEntradasById: (idEntradas) => `SELECT * FROM Entradas WHERE idEntradas='${idEntradas}'`,
 
-    getEntradasByDate: (date) => `SELECT idEntradas, idEventos, DNI, FechaV, Visitantes, Show FROM Entradas WHERE FechaV='${date}' AND Show IS NULL`,
+    getEntradasByDate: (date) => `SELECT idEntradas, Entradas.idEventos, DNI, FechaV, Visitantes, Eventos.Evento, Show FROM Entradas inner join Eventos on Entradas.idEventos=Eventos.idEventos WHERE FechaV='${date}' AND Show IS NULL`,
 
     getEntradasByEventos: (idEventos) => `GetEntradas @IdEvento=${idEventos}`,
 
